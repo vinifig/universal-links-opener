@@ -6,9 +6,13 @@ export default function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Made with ❤️ using '}
-      <MuiLink color="inherit" href="https://mui.com/">
+      <MuiLink color="inherit" href="https://mui.com/" target="_blank">
         Mui
-      </MuiLink>{'.'}
+      </MuiLink>
+      {'. by '}
+      <MuiLink color="inherit" href="https://github.com/vinifig" target="_blank">
+        @vinifig
+      </MuiLink>
     </Typography>
   );
 }
