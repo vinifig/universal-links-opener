@@ -8,9 +8,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { TextField } from '@mui/material';
+import va from '@vercel/analytics';
 
 export default function Home() {
   const [url, setUrl] = useState('');
+  const openUrl = () => {
+    window.open(url, '_blank')
+    va.track('open')
+  }
+
   return (
     <>
       <AppBar position="relative">
@@ -56,7 +62,7 @@ export default function Home() {
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setUrl(event.target.value);
                 }} />
-              <Button disabled={!url} variant="contained" href={url} target="_blank">open link</Button>
+              <Button disabled={!url} variant="contained" onClick={openUrl}>open link</Button>
             </Stack>
           </Container>
         </Box>
