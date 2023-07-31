@@ -8,10 +8,12 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { TextField } from '@mui/material';
+import { useSearchParams } from 'next/navigation'
 import va from '@vercel/analytics';
 
+
 export default function Home() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState(useSearchParams().get('url') || '');
   const openUrl = () => {
     window.open(url, '_blank')
     va.track('open')
